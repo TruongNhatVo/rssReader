@@ -17,7 +17,7 @@
 </ion-content>
 </ion-header>
 
-<ion-content >
+<ion-content scroll="true">
 
 
   <ion-slides #SwipedTabsSlider  (ionSlideDrag)="animateIndicator($event)"
@@ -25,42 +25,31 @@
               (ionSlideDidChange)="updateIndicatorPosition()"
               (pan)="updateIndicatorPosition()"
               [pager]="false"
+              scroll="true"
         >
     <ion-slide>
-      <h1>Page 1 </h1>
+      <h1><list-news></list-news></h1>
     </ion-slide>
     <ion-slide>
-      <h1>Page 2 </h1>
+      <h1><list-news></list-news></h1>
     </ion-slide>
     <ion-slide>
-      <h1>Page 3 </h1>
+      <h1><list-news></list-news></h1>
     </ion-slide>
     <ion-slide>
-      <h1>Page 4 </h1>
+      <h1><list-news></list-news></h1>
     </ion-slide>
     <ion-slide>
-      <h1>Page 5 </h1>
+      <h1><list-news></list-news></h1>
     </ion-slide>
     <ion-slide>
-      <h1>Page 6 </h1>
+      <h1><list-news></list-news></h1>
     </ion-slide>
     <ion-slide>
-      <h1>Page 7 </h1>
+      <h1><list-news></list-news></h1>
     </ion-slide>
     <ion-slide>
-      <h1>Page 8 </h1>
-    </ion-slide>
-    <ion-slide>
-      <h1>Page 9 </h1>
-    </ion-slide>
-    <ion-slide>
-      <h1>Page 10 </h1>
-    </ion-slide>
-    <ion-slide>
-      <h1>Page 11 </h1>
-    </ion-slide>
-    <ion-slide>
-      <h1>Page 12 </h1>
+      <h1><list-news></list-news></h1>
     </ion-slide>
   </ion-slides>
 

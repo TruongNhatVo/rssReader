@@ -8,13 +8,17 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ManyTabsPage } from '../pages/many-tabs/many-tabs';
 import { GoogleplayTabsPage } from '../pages/googleplay-tabs/googleplay-tabs';
+import { TestPage } from '../pages/test/test';
+import { ListNewsComponent } from '../components/list-news/list-news';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     ManyTabsPage,
-    GoogleplayTabsPage
+    GoogleplayTabsPage,
+    TestPage,
+    ListNewsComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +29,9 @@ import { GoogleplayTabsPage } from '../pages/googleplay-tabs/googleplay-tabs';
     MyApp,
     HomePage,
     ManyTabsPage,
-    GoogleplayTabsPage
+    TestPage,
+    GoogleplayTabsPage,
+    ListNewsComponent
   ],
   providers: [
     StatusBar,

@@ -25,7 +25,7 @@
   <li>{{item}}</li>
 </ul>
 
-<ion-content padding color="primary">
+<ion-content color="primary">
   <ion-slides 
     #SwipedTabsSlider 
     (ionSlideDrag)="animateIndicator($event)" 
@@ -33,8 +33,8 @@
     (ionSlideWillChange)="scrollIndicatiorTab()"
     (panend)="updateIndicatorPositionOnTouchEnd()" [pager]="false">
     <div class="swiper-wrapper" *ngFor="let item of tabs">
-      <ion-slide>
-        <h1>{{item}}</h1>
+      <ion-slide style="overflow-y: auto">
+          <list-news></list-news>
       </ion-slide>
     </div>
   </ion-slides>

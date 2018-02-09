@@ -5,7 +5,6 @@ page-googleplay-tabs {
         height: 1px;
         position: relative;
         top: -2px;
-        // background-color: blue !important;
     }
     .SwipedTabs-tabs ion-segment-button {
         border: none !important;
@@ -14,7 +13,7 @@ page-googleplay-tabs {
         padding-right: 20px !important;
     }
     .SwipedTabs-tabs ion-segment-button.SwipedTabs-activeTab {
-        background: color($colors,primary)!important;
+        background: color($colors, primary)!important;
         color: white!important;
     }
     .SwipedTabs-tabs {
@@ -31,6 +30,9 @@ page-googleplay-tabs {
         flex: auto !important;
         width: initial !important;
     }
+    .scroll-content {
+        overflow-y: hidden;
+    }
 }
 
 .ios {
@@ -40,4 +42,8 @@ page-googleplay-tabs {
             top: 44px !important;
         }
     }
+}
+
+.platform-android ion-toolbar .scroll-content {
+    height: 100px!important;
 }

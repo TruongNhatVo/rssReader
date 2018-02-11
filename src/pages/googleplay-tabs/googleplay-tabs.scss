@@ -33,6 +33,10 @@ page-googleplay-tabs {
     .scroll-content {
         overflow-y: hidden;
     }
+    ion-slide {
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
 }
 
 .ios {

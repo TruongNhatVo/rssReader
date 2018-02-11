@@ -1,41 +1,32 @@
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>Tin tức</ion-title>
-  </ion-navbar>
-  <ion-toolbar>
-    <ion-content #MultiItemsScrollingTabs class="tabsContent">
-      <ion-segment class="SwipedTabs-tabs">
-        <ion-segment-button 
-          *ngFor='let tab of tabs ; let i = index ' 
-          id="tabTitle{{i}}" value="IngoreMe" 
-          (click)="selectTab(i)"
-          [ngClass]='{ "SwipedTabs-activeTab" : ( this.SwipedTabsSlider  && ( this.SwipedTabsSlider.getActiveIndex() === i || (  tabs.length -1 === i&& this.SwipedTabsSlider.isEnd()))) }'>
-          {{tab}}
-        </ion-segment-button>
-      </ion-segment>
-      <!-- here is our dynamic line  "indicator"-->
-      <div id='indicator' class="SwipedTabs-indicatorSegment"></div>
-    </ion-content>
-  </ion-toolbar>
+    <ion-navbar>
+        <ion-title>Tin tức</ion-title>
+    </ion-navbar>
+    <ion-toolbar>
+        <ion-content #MultiItemsScrollingTabs class="tabsContent">
+            <ion-segment class="SwipedTabs-tabs">
+                <ion-segment-button *ngFor='let tab of tabs ; let i = index ' id="tabTitle{{i}}" value="IngoreMe" (click)="selectTab(i)" [ngClass]='{ "SwipedTabs-activeTab" : ( this.SwipedTabsSlider  && ( this.SwipedTabsSlider.getActiveIndex() === i || (  tabs.length -1 === i&& this.SwipedTabsSlider.isEnd()))) }'>
+                    {{tab}}
+                </ion-segment-button>
+            </ion-segment>
+            <!-- here is our dynamic line  "indicator"-->
+            <div id='indicator' class="SwipedTabs-indicatorSegment"></div>
+        </ion-content>
+    </ion-toolbar>
 
 </ion-header>
 
 <ul *ngFor="let item of tabs">
-  <li>{{item}}</li>
+    <li>{{item}}</li>
 </ul>
 
 <ion-content color="primary">
-  <ion-slides 
-    #SwipedTabsSlider 
-    (ionSlideDrag)="animateIndicator($event)" 
-    (ionSlideDidChange)="updateIndicatorPosition()" 
-    (ionSlideWillChange)="scrollIndicatiorTab()"
-    (panend)="updateIndicatorPositionOnTouchEnd()" [pager]="false">
-    <div class="swiper-wrapper" *ngFor="let item of tabs">
-      <ion-slide style="overflow-y: auto">
-          <list-news></list-news>
-      </ion-slide>
-    </div>
-  </ion-slides>
+    <ion-slides #SwipedTabsSlider (ionSlideDrag)="animateIndicator($event)" (ionSlideDidChange)="updateIndicatorPosition()" (ionSlideWillChange)="scrollIndicatiorTab()" (panend)="updateIndicatorPositionOnTouchEnd()" [pager]="false">
+        <div class="swiper-wrapper" *ngFor="let item of tabs">
+            <ion-slide>
+                <list-news></list-news>
+            </ion-slide>
+        </div>
+    </ion-slides>
 </ion-content>

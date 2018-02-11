@@ -1,0 +1,45 @@
+<ion-grid color="primary">
+    <ion-row>
+        <ion-col col-12 col-md-6>
+            <ion-list>
+
+                <ion-item>
+                    <ion-label floating>Nguồn nội dung</ion-label>
+                    <ion-input [(ngModel)]="source" type="text"></ion-input>
+                </ion-item>
+
+            </ion-list>
+
+            <div padding>
+                <button block ion-button (click)=addSource()>Thêm</button>
+            </div>
+        </ion-col>
+        <ion-col col-12 col-md-6>
+            <form (ngSubmit)="pushData()">
+                <ion-list>
+
+                    <ion-item>
+                        <ion-label>Nguồn</ion-label>
+                        <ion-select [(ngModel)]="item.source" [ngModelOptions]="{standalone: true}">
+                            <ion-option *ngFor="let item of testValue" [value]="item">{{item}}</ion-option>
+                        </ion-select>
+                    </ion-item>
+
+                    <ion-item>
+                        <ion-label floating>Chủ để</ion-label>
+                        <ion-input [(ngModel)]="item.category" type="text" [ngModelOptions]="{standalone: true}"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label floating>Link url</ion-label>
+                        <ion-input [(ngModel)]="item.url" type="text" [ngModelOptions]="{standalone: true}"></ion-input>
+                    </ion-item>
+
+                </ion-list>
+
+                <div padding>
+                    <button block ion-button color="secondary" type="submit">Tạo nội dung</button>
+                </div>
+            </form>
+        </ion-col>
+    </ion-row>
+</ion-grid>

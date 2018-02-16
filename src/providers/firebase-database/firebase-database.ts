@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireModule } from 'angularfire2';
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 
@@ -20,6 +21,10 @@ export class FirebaseDatabaseProvider {
   
   removeItem(url:string, id:string) {
     this.afd.list(url).remove(id);
+  }
+  
+  getKey() {
+    this.afd.
   }
 
 }

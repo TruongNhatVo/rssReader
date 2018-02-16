@@ -38,7 +38,8 @@ export class AdminPage {
   clearValue() {
     this.source = '';
   }
-
+  
+ 
   pushData() {
     this.afd.addData('item',this.item);
   }

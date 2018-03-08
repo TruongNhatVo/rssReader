@@ -22,9 +22,5 @@ export class FirebaseDatabaseProvider {
   removeItem(url:string, id:string) {
     this.afd.list(url).remove(id);
   }
-  
-  getKey() {
-    this.afd.
-  }
 
 }

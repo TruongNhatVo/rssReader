@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-import { AngularFireDatabase } from 'angularfire2/database';
+import { AngularFireDatabase} from 'angularfire2/database';
 import { AngularFireModule } from 'angularfire2';
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
@@ -8,7 +8,10 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class FirebaseDatabaseProvider {
 
-  constructor(public http: Http, public afd: AngularFireDatabase) {
+  constructor(
+    public http: Http, 
+    public afd: AngularFireDatabase,
+  ) {
   }
   
   getData(url: string) {
@@ -16,7 +19,7 @@ export class FirebaseDatabaseProvider {
   }
 
   addData(url:string, value:string) {
-    this.afd.list(url).push(value);
+    return this.afd.list(url).push(value);
   }
   
   removeItem(url:string, id:string) {

@@ -13,6 +13,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabase} from 'angularfire2/database';
 import { FirebaseDatabaseProvider } from '../providers/firebase-database/firebase-database';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { HelperProvider } from '../providers/helper/helper';
 
 var config = {
   apiKey: "AIzaSyDjIBpwaIAo0xI1NNVp0PwL2ykQu8wyWBU",
@@ -53,7 +54,8 @@ var config = {
     FirebaseDatabaseProvider,
     HttpModule,
     AngularFireDatabase,
-    AngularFireModule
+    AngularFireModule,
+    HelperProvider
   ]
 })
 export class AppModule {}

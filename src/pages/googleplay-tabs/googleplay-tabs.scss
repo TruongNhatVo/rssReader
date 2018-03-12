@@ -30,8 +30,8 @@ page-googleplay-tabs {
         flex: auto !important;
         width: initial !important;
     }
-    .scroll-content {
-        overflow-y: hidden;
+    .segment-ios .segment-button {
+        color: color($colors, primary)!important;
     }
     ion-slide {
         overflow-x: hidden;
@@ -50,4 +50,8 @@ page-googleplay-tabs {
 
 .platform-android ion-toolbar .scroll-content {
     height: 100px!important;
+}
+
+page-googleplay-tabs .toolbar * {
+    overflow-y: hidden;
 }

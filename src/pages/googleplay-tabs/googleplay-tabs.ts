@@ -1,5 +1,7 @@
 import { Component ,ViewChild} from '@angular/core';
 import { IonicPage, NavController, NavParams , Slides , Content,Platform} from 'ionic-angular';
+import { Observable } from 'rxjs/Observable';
+import { FirebaseDatabaseProvider } from "../../providers/firebase-database/firebase-database";
 
 @IonicPage()
 @Component({
@@ -21,12 +23,14 @@ export class GoogleplayTabsPage {
   isLeft:boolean= true;
   tabs:any=[];
 
-
-  constructor(public navCtrl: NavController ,platform: Platform) {
-    this.tabs = ["Thể thao", "Pháp luật", "Xã Hội", "Quốc tế", "Công nghệ", "Cuộc sống muôn màu", "Thử thách bản thân", "DU lịch bốn phương"];;
+  constructor(
+    public navCtrl: NavController, 
+    public platform: Platform, 
+    private afd: FirebaseDatabaseProvider) {
+    // this.tabs = ["Thể thao", "Pháp luật", "Xã Hội", "Quốc tế", "Công nghệ", "Cuộc sống muôn màu", "Thử thách bản thân", "DU lịch bốn phương"];;
     console.log('Width: ' + platform.width());
     this.screenWidth_px=platform.width();
-
+    this.loadAllCategory();
   }
   ionViewDidEnter() {
     this.SwipedTabsIndicator = document.getElementById("indicator");
@@ -36,9 +40,15 @@ export class GoogleplayTabsPage {
     this.selectTab(0);
   }
 
+  loadAllCategory() {
+    this.afd.getData('rssItem').valueChanges().subscribe(snapshot => {
+      this.tabs = snapshot;
+      console.log(this.tabs);
+    })
+  }
+
   scrollIndicatiorTab()
   {
-    console.log('heelo');
     this.ItemsTitles.scrollTo(this.calculateDistanceToSpnd(this.SwipedTabsSlider.getActiveIndex())-this.screenWidth_px/2,0);
   }
 
@@ -65,7 +75,6 @@ export class GoogleplayTabsPage {
 
     this.SwipedTabsIndicator.style.width = this.tabTitleWidthArray[index]+"px";
     this.SwipedTabsIndicator.style.webkitTransform = 'translate3d('+(this.calculateDistanceToSpnd(index))+'px,0,0)';
-
   }
 
   updateIndicatorPositionOnTouchEnd()

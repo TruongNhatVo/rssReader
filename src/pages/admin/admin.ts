@@ -12,10 +12,12 @@ import { FirebaseDatabase } from '@firebase/database-types';
   selector: 'page-admin',
   templateUrl: 'admin.html',
 })
+
+
 export class AdminPage {
   
   public source: string;
-  public testValue: any;  
+  public testValue: Observable<any>;  
   public rssItemForm: FormGroup;
 
   // test
@@ -32,6 +34,8 @@ export class AdminPage {
     this.getValueRssItemForm();
   }
 
+  // test items: Observable<any[]>;
+  items: Observable<any[]>;
   loadData(url) {
     this.itemsRef = this.afd.getData(url);
     this.allResource = this.itemsRef.snapshotChanges().map(res => {
@@ -57,11 +61,12 @@ export class AdminPage {
   
   /* add all resource */ 
   addSource() {
-    this.afd.addData('resource', this.source);
+    this.afd.checkExistData('rssItem',this.source);
+    // this.afd.addData('resource', this.source);
   }
 
   /* add all rssItem */ 
-  pushData(rssItemForm) {
+  addRssFormData(rssItemForm) {
     let result = this.afd.addData('rssItem',rssItemForm.value);
   }
 

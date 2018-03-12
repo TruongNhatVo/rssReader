@@ -6,8 +6,8 @@
     <ion-toolbar>
         <ion-content #MultiItemsScrollingTabs class="tabsContent">
             <ion-segment class="SwipedTabs-tabs">
-                <ion-segment-button *ngFor='let tab of tabs ; let i = index ' id="tabTitle{{i}}" value="IngoreMe" (click)="selectTab(i)" [ngClass]='{ "SwipedTabs-activeTab" : ( this.SwipedTabsSlider  && ( this.SwipedTabsSlider.getActiveIndex() === i || (  tabs.length -1 === i&& this.SwipedTabsSlider.isEnd()))) }'>
-                    {{tab}}
+                <ion-segment-button *ngFor='let tab of tabs; let i = index' id="tabTitle{{i}}" value="IngoreMe" (click)="selectTab(i)" [ngClass]='{ "SwipedTabs-activeTab" : ( this.SwipedTabsSlider  && ( this.SwipedTabsSlider.getActiveIndex() === i || (  tabs.length -1 === i&& this.SwipedTabsSlider.isEnd()))) }'>
+                    {{tab.category}}
                 </ion-segment-button>
             </ion-segment>
             <!-- here is our dynamic line  "indicator"-->
@@ -16,14 +16,14 @@
     </ion-toolbar>
 
 </ion-header>
-
+<!-- 
 <ul *ngFor="let item of tabs">
     <li>{{item}}</li>
-</ul>
+</ul> -->
 
 <ion-content color="primary">
     <ion-slides #SwipedTabsSlider (ionSlideDrag)="animateIndicator($event)" (ionSlideDidChange)="updateIndicatorPosition()" (ionSlideWillChange)="scrollIndicatiorTab()" (panend)="updateIndicatorPositionOnTouchEnd()" [pager]="false">
-        <div class="swiper-wrapper" *ngFor="let item of tabs">
+        <div class="getRssCategory">
             <ion-slide>
                 <list-news></list-news>
             </ion-slide>

@@ -4,12 +4,13 @@ import { AngularFireDatabase} from 'angularfire2/database';
 import { AngularFireModule } from 'angularfire2';
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
+import * as firebase from 'firebase';
 
 @Injectable()
 export class FirebaseDatabaseProvider {
 
   constructor(
-    public http: Http, 
+    public http: Http,  
     public afd: AngularFireDatabase,
   ) {
   }
@@ -24,6 +25,11 @@ export class FirebaseDatabaseProvider {
   
   removeItem(url:string, id:string) {
     this.afd.list(url).remove(id);
-  }
+  } 
 
+  checkExistData(path,data) {
+    this.afd.database.ref().child(path).once('value', snapshot => {
+      !snapshot.hasChild(data) ? console.log('not exist data') : console.log('exist data');
+    })
+  }
 }

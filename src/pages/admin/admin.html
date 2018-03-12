@@ -15,7 +15,7 @@
             </div>
         </ion-col>
         <ion-col col-12 col-md-6>
-            <form [formGroup]="rssItemForm" (ngSubmit)="pushData(rssItemForm)">
+            <form [formGroup]="rssItemForm" (ngSubmit)="addRssFormData(rssItemForm)">
                 <ion-list>
 
                     <ion-item>
@@ -39,9 +39,11 @@
                 <div padding>
                     <button block ion-button color="secondary" type="submit">Tạo nội dung</button>
                 </div>
-                <!-- <ul *ngFor="let item of allResource | async">
-                    <li>{{item.key}} - {{item.val }} </li>
-                </ul> -->
+                <ul>
+                    <li *ngFor="let item of items | async">
+                    {{ item | json }}
+                    </li>
+                </ul>
             </form>
         </ion-col>
     </ion-row>

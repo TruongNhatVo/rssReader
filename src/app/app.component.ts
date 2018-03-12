@@ -10,7 +10,7 @@ import { AdminPage } from '../pages/admin/admin';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage: any = AdminPage ;
+  rootPage: any = GoogleplayTabsPage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
